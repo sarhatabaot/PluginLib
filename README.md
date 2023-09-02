@@ -3,11 +3,11 @@
 A simple utility to allow downloading libraries and relocating them at runtime without having to shade them
 
 # Usage
-Simply extend **pluginlib.DependentJavaPlugin** instead of Bukkit's *JavaPlugin*.
+Simply extend **com.github.reflxctiondev.pluginlib.DependentJavaPlugin** instead of Bukkit's *JavaPlugin*.
 ```java
 package org.example;  
   
-import pluginlib.DependentJavaPlugin;  
+import com.github.reflxctiondev.pluginlib.DependentJavaPlugin;  
   
 public class ExamplePlugin extends DependentJavaPlugin {  
   
@@ -85,8 +85,8 @@ For example, if we want to use **[Caffeine](https://github.com/ben-manes/caffein
 ```java
 package org.example;  
   
-import pluginlib.DependentJavaPlugin;  
-import pluginlib.PluginLib;  
+import com.github.reflxctiondev.pluginlib.DependentJavaPlugin;  
+import com.github.reflxctiondev.pluginlib.PluginLib;  
   
 public class ExamplePlugin extends DependentJavaPlugin {  
   
@@ -152,9 +152,9 @@ We can specify relocation rules through our code in the builder:
 ```java
 package org.example;  
   
-import pluginlib.DependentJavaPlugin;  
-import pluginlib.PluginLib;  
-import pluginlib.Relocation;  
+import com.github.reflxctiondev.pluginlib.DependentJavaPlugin;  
+import com.github.reflxctiondev.pluginlib.PluginLib;  
+import com.github.reflxctiondev.pluginlib.Relocation;  
   
 public class ExamplePlugin extends DependentJavaPlugin {  
   

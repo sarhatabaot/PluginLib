@@ -1,7 +1,8 @@
-package pluginlib;
+package com.github.reflxctiondev.pluginlib;
 
 import org.bukkit.Bukkit;
 import org.intellij.lang.annotations.Language;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -32,7 +33,10 @@ import static java.util.Objects.requireNonNull;
  */
 public class PluginLib {
 
-    public final String groupId, artifactId, version, repository;
+    public final String groupId;
+    public final String artifactId;
+    public final String version;
+    public final String repository;
     public final Set<Relocation> relocationRules;
     private final boolean hasRelocations;
 
@@ -50,7 +54,8 @@ public class PluginLib {
      *
      * @return The newly created builder.
      */
-    public static Builder builder() {
+    @Contract(" -> new")
+    public static @NotNull Builder builder() {
         return new Builder();
     }
 
@@ -182,7 +187,10 @@ public class PluginLib {
     public static class Builder {
 
         private String url = null;
-        private String group, artifact, version, repository = "https://repo1.maven.org/maven2/";
+        private String group;
+        private String artifact;
+        private String version;
+        private String repository = "https://repo1.maven.org/maven2/";
         private final Set<Relocation> relocations = new LinkedHashSet<>();
 
         protected Builder() {

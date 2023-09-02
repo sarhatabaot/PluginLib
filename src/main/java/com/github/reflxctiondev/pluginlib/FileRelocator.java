@@ -1,4 +1,6 @@
-package pluginlib;
+package com.github.reflxctiondev.pluginlib;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -15,19 +17,19 @@ public abstract class FileRelocator {
     private static final PluginLib asm = PluginLib.builder()
             .groupId("org.ow2.asm")
             .artifactId("asm")
-            .version("7.1")
+            .version("9.5")
             .build();
 
     private static final PluginLib asm_commons = PluginLib.builder()
             .groupId("org.ow2.asm")
             .artifactId("asm-commons")
-            .version("7.1")
+            .version("9.5")
             .build();
 
     private static final PluginLib jarRelocator = PluginLib.builder()
             .groupId("me.lucko")
             .artifactId("jar-relocator")
-            .version("1.4")
+            .version("1.7")
             .build();
 
     private static Constructor<?> relocatorConstructor;
@@ -54,7 +56,7 @@ public abstract class FileRelocator {
         }
     }
 
-    public static void remap(File input, File output, Set<Relocation> relocations) throws Exception {
+    public static void remap(File input, File output, @NotNull Set<Relocation> relocations) throws Exception {
         Map<String, String> mappings = new HashMap<>();
         for (Relocation relocation : relocations) {
             mappings.put(relocation.getPath(), relocation.getNewPath());

@@ -1,4 +1,6 @@
-package pluginlib;
+package com.github.reflxctiondev.pluginlib;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -9,7 +11,8 @@ import java.util.Objects;
  */
 public final class Relocation {
 
-    private final String path, newPath;
+    private final String path;
+    private final String newPath;
 
     /**
      * Creates a new relocation rule
@@ -17,7 +20,7 @@ public final class Relocation {
      * @param path    Path to relocate
      * @param newPath New path to replace it
      */
-    public Relocation(String path, String newPath) {
+    public Relocation(@NotNull String path, @NotNull String newPath) {
         this.path = path.replace('/', '.').replace('#', '.');
         this.newPath = newPath.replace('/', '.').replace('#', '.');
     }
